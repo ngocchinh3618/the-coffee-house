@@ -56,9 +56,11 @@ export const actions = {
 
 export const mutations = {
   fetchDrinkList (state, data){
+    state.drinkList.splice(0, state.drinkList.length)
     state.drinkList.push(...data)
   },
   fetchDrinkItem (state, data){
+    state.drinkItem.splice(0, state.drinkItem.length)
     state.drinkItem.push(...data)
   },
   fetchFilterDrinkItem (state, data){
@@ -66,3 +68,18 @@ export const mutations = {
     state.filterDrinkItem.push(...data)
   }
 }
+
+//   async fetchNewsItem({ commit }) {
+//     const intval = setInterval(async () => {
+//       const data = await this.$newsRepository.index({})
+//       console.log('news ' + data.news)
+//       if (data?.news?.length > 0) {
+//         commit('fetchNewsItem', data.news)
+//         clearInterval(intval)
+//       }
+//     }, 1000)
+//     // }
+//     // catch (error) {
+//     //     console.log(error)
+//     // }
+//   },
